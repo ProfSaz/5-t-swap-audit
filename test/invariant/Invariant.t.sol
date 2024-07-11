@@ -24,6 +24,7 @@ contract Invariant is StdInvariant, Test {
     function setUp() public {
         weth = new ERC20Mock();
         poolToken = new ERC20Mock();
+
         factory = new PoolFactory(address(weth));
         pool = TSwapPool(factory.createPool(address(poolToken)));
 
@@ -63,6 +64,7 @@ contract Invariant is StdInvariant, Test {
     // γ = (1 - p) (pronounced gamma)
     // ∆x = (β/(1-β)) * (1/γ) * x
     // ∆y = (αγ/1+αγ) * y
+
     function invariant_deltaXFollowsMath() public {
         assertEq(handler.actualDeltaX(), handler.expectedDeltaX());
     }
