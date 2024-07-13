@@ -321,7 +321,7 @@ contract TSwapPool is ERC20 {
         _swap(inputToken, inputAmount, outputToken, outputAmount);
     }
 
-    /*
+    /** 
      * @notice figures out how much you need to input based on how much
      * output you want to receive.
      *
